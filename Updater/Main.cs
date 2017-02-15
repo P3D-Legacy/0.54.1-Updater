@@ -46,7 +46,7 @@ namespace Updater
 
         private void result(string version)
         {
-            if (version == "0.54.1")
+            if (version != "0.54.1")
             {
                 Hide();
                 UpdatePrompt test = new UpdatePrompt("Indev " + version);
