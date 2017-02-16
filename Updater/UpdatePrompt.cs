@@ -20,13 +20,16 @@ namespace Updater
 
         private void btnNo_Click(object sender, EventArgs e)
         {
-            Environment.Exit(0);
+            if (checkBox1.Checked)
+                Environment.Exit(1);
+            else
+                Environment.Exit(0);
         }
 
         private void btnYes_Click(object sender, EventArgs e)
         {
             Hide();
-            UpdatePrompt2 test = new UpdatePrompt2();
+            UpdatePrompt2 test = new UpdatePrompt2(checkBox1.Checked);
             test.Show();
             test.FormClosed += (s, args) => Close();
         }

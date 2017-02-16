@@ -27,13 +27,25 @@ namespace Updater
                     using (WebClient client = new WebClient())
                     {
                         client.CachePolicy = new RequestCachePolicy(RequestCacheLevel.BypassCache);
+
                         Stream stream = client.OpenRead("https://raw.githubusercontent.com/P3D-Legacy/P3D-Legacy-Data/master/CurrentVersion.dat");
                         stream.ReadTimeout = 5000;
 
                         using (StreamReader Reader = new StreamReader(stream))
                         {
-                            string CurrentTask = Reader.ReadToEnd();
-                            Invoke(new returnResult(result), CurrentTask);
+                            string version = Reader.ReadToEnd();
+                            Invoke(new MethodInvoker(delegate
+                            {
+                                if (version.Trim() == "0.54.1a")
+                                {
+                                    Hide();
+                                    UpdatePrompt test = new UpdatePrompt("Indev " + version);
+                                    test.Show();
+                                    test.FormClosed += (s, args) => Close();
+                                }
+                                else
+                                    Close();
+                            }));
                         }
                     }
                 }
@@ -41,19 +53,6 @@ namespace Updater
             });
             test.IsBackground = true;
             test.Start();
-        }
-
-        private void result(string version)
-        {
-            if (version.Trim() != "0.54.1a")
-            {
-                Hide();
-                UpdatePrompt test = new UpdatePrompt("Indev " + version);
-                test.Show();
-                test.FormClosed += (s, args) => Close();
-            }
-            else
-                Close();
         }
     }
 }

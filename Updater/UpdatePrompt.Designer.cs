@@ -36,6 +36,7 @@
             this.btnYes = new System.Windows.Forms.Button();
             this.btnNo = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -87,7 +88,7 @@
             // 
             // btnYes
             // 
-            this.btnYes.Location = new System.Drawing.Point(164, 135);
+            this.btnYes.Location = new System.Drawing.Point(164, 161);
             this.btnYes.Name = "btnYes";
             this.btnYes.Size = new System.Drawing.Size(75, 23);
             this.btnYes.TabIndex = 5;
@@ -97,7 +98,7 @@
             // 
             // btnNo
             // 
-            this.btnNo.Location = new System.Drawing.Point(245, 135);
+            this.btnNo.Location = new System.Drawing.Point(245, 161);
             this.btnNo.Name = "btnNo";
             this.btnNo.Size = new System.Drawing.Size(75, 23);
             this.btnNo.TabIndex = 6;
@@ -114,11 +115,22 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Indev 0.54.1a";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(18, 136);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(136, 21);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Do ask me again";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // UpdatePrompt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(332, 172);
+            this.ClientSize = new System.Drawing.Size(332, 196);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnNo);
             this.Controls.Add(this.btnYes);
@@ -146,5 +158,6 @@
         private System.Windows.Forms.Button btnYes;
         private System.Windows.Forms.Button btnNo;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
