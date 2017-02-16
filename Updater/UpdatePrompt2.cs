@@ -19,7 +19,7 @@ namespace Updater
             if (HaveChecked)
                 Environment.Exit(3);
             else
-                Environment.Exit(2);
+                Environment.Exit(1);
         }
 
         private void button2_Click(object sender, EventArgs e)

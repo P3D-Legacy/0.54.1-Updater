@@ -21,7 +21,7 @@ namespace Updater
         private void btnNo_Click(object sender, EventArgs e)
         {
             if (checkBox1.Checked)
-                Environment.Exit(1);
+                Environment.Exit(2);
             else
                 Environment.Exit(0);
         }
