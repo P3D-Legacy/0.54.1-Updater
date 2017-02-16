@@ -1,10 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Net;
 using System.Net.Cache;
-using System.Windows.Forms;
 using System.Threading;
-using System.IO;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Updater
 {
@@ -28,7 +27,7 @@ namespace Updater
                     using (WebClient client = new WebClient())
                     {
                         client.CachePolicy = new RequestCachePolicy(RequestCacheLevel.BypassCache);
-                        Stream stream = client.OpenRead("https://raw.githubusercontent.com/P3D-Legacy/P3D-Legacy/master/2.5DHero/2.5DHero/CurrentVersion.dat");
+                        Stream stream = client.OpenRead("https://raw.githubusercontent.com/P3D-Legacy/P3D-Legacy-Data/master/CurrentVersion.dat");
                         stream.ReadTimeout = 5000;
 
                         using (StreamReader Reader = new StreamReader(stream))
@@ -46,7 +45,7 @@ namespace Updater
 
         private void result(string version)
         {
-            if (version != "0.54.1")
+            if (version.Trim() != "0.54.1a")
             {
                 Hide();
                 UpdatePrompt test = new UpdatePrompt("Indev " + version);
